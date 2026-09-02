@@ -1,5 +1,12 @@
-const express = require("express");
+require("dotenv").config();
 
+const express = require("express");
+const app = express();
+app.use(express.json()); //to parse the incoming json, so we can PARSE IT to access using req.body
+
+
+
+//FUNCTIONS:
 function fakeAI() {
     return new Promise((resolve) => {
         setTimeout(() => {
@@ -8,12 +15,17 @@ function fakeAI() {
     });
 }
 
-const app = express();
+async function getTestData() {
+    const response = await fetch("https://jsonplaceholder.typicode.com/todos/1");
 
+    const data = await response.json();
 
+    return data;
+}
 
-app.use(express.json()); //to parse the incoming json, so we can PARSE IT to access using req.body
+console.log(process.env.GEMINI_API_KEY); //test for process dotenv
 
+//ROUTES:
 
 app.get("/", (req, res) => {
     res.send("Placement Arena backend is alive!");
@@ -25,6 +37,12 @@ app.get("/api/test", (req, res) => {
         project: "Placement Arena"
     });
 }); //test api
+
+app.get("/api/external-test", async (req, res) => {
+    const data = await getTestData(); //coming back to backend
+
+    res.json(data); //sending to frontend (or) browser
+}); //test external-api
 
 app.post("/api/answer", async (req, res) => {
     const company = req.body.company;
