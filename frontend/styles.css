@@ -1,0 +1,346 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+button,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.app {
+    width: min(100% - 40px, 1000px);
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+.screen {
+    min-height: calc(100vh - 120px);
+}
+
+/* =========================
+   COMMON
+========================= */
+
+.hidden {
+    display: none !important;
+}
+
+.eyebrow {
+    color: #60a5fa;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+/* =========================
+   START SCREEN
+========================= */
+
+#startScreen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero {
+    max-width: 700px;
+    margin-bottom: 45px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+.setup-card {
+    width: min(100%, 500px);
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 20px;
+    padding: 32px;
+    text-align: left;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.field {
+    margin-bottom: 22px;
+}
+
+.field label,
+.answer-card label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #cbd5e1;
+}
+
+.field select {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    background: #0f172a;
+    color: #f8fafc;
+    outline: none;
+}
+
+.field select:focus {
+    border-color: #60a5fa;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+    border: none;
+    border-radius: 10px;
+    padding: 13px 20px;
+    background: #2563eb;
+    color: white;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #3b82f6;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.setup-card button {
+    width: 100%;
+    margin-top: 5px;
+}
+
+/* =========================
+   INTERVIEW SCREEN
+========================= */
+
+.interview-header {
+    margin-bottom: 30px;
+}
+
+.interview-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 18px;
+}
+
+.progress {
+    width: 100%;
+    height: 7px;
+    background: #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+#progressBar {
+    width: 20%;
+    height: 100%;
+    background: #3b82f6;
+    transition: width 0.3s ease;
+}
+
+.question-card,
+.answer-card,
+.feedback-card,
+.results-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 22px;
+}
+
+.question-label {
+    color: #60a5fa;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.question-card h2 {
+    font-size: 1.5rem;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.answer-card textarea {
+    width: 100%;
+    resize: vertical;
+    min-height: 180px;
+    padding: 15px;
+    border: 1px solid #475569;
+    border-radius: 10px;
+    background: #0f172a;
+    color: #f8fafc;
+    outline: none;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.answer-card textarea:focus {
+    border-color: #60a5fa;
+}
+
+.answer-card button {
+    width: 100%;
+}
+
+/* =========================
+   FEEDBACK
+========================= */
+
+.feedback-card {
+    border-color: #475569;
+}
+
+.score-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #334155;
+}
+
+.score-section span {
+    color: #94a3b8;
+}
+
+.score-section strong {
+    font-size: 2rem;
+}
+
+.feedback-card h3,
+.results-card h3 {
+    margin-bottom: 10px;
+}
+
+.feedback-card p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.feedback-card ul,
+.results-card ul {
+    padding-left: 20px;
+    color: #cbd5e1;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   RESULTS
+========================= */
+
+#resultsScreen {
+    text-align: center;
+}
+
+.results-header {
+    margin-bottom: 35px;
+}
+
+.results-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.final-score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.final-score strong {
+    font-size: 4rem;
+}
+
+.final-score span {
+    color: #94a3b8;
+    font-size: 1.4rem;
+}
+
+.results-card {
+    text-align: left;
+}
+
+.results-card > div {
+    margin-bottom: 25px;
+}
+
+.results-card > div:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 600px) {
+
+    .app {
+        width: min(100% - 24px, 1000px);
+        padding: 30px 0;
+    }
+
+    .screen {
+        min-height: calc(100vh - 60px);
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
+
+    .setup-card,
+    .question-card,
+    .answer-card,
+    .feedback-card,
+    .results-card {
+        padding: 22px;
+        border-radius: 14px;
+    }
+
+    .question-card h2 {
+        font-size: 1.2rem;
+    }
+
+    .final-score strong {
+        font-size: 3rem;
+    }
+}

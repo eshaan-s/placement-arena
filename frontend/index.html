@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Placement Arena</title>
 
     <link rel="stylesheet" href="styles.css">
@@ -10,31 +12,191 @@
 
 <body>
 
-    <h1>Placement Arena</h1>
-    <p>AI-Powered Mock Interviews</p>
+    <main class="app">
 
-    <label for="company">Choose Company:</label>
+        <!-- START SCREEN -->
+        <section id="startScreen" class="screen">
 
-    <select id="company">
-        <option value="Google">Google</option>
-        <option value="Microsoft">Microsoft</option>
-        <option value="Amazon">Amazon</option>
-    </select>
+            <div class="hero">
+                <p class="eyebrow">AI-POWERED MOCK INTERVIEWS</p>
 
-    <br><br>
+                <h1>Placement Arena</h1>
 
-    <label for="role">Choose Role:</label>
-    <select id="role">
-        <option value="Software Engineer">Software Engineer</option>
-        <option value="Frontend Developer">Frontend Developer</option>
-        <option value="Backend Developer">Backend Developer</option>
-    </select>
+                <p class="subtitle">
+                    Practice technical interviews, get AI feedback,
+                    and improve your interview performance.
+                </p>
+            </div>
 
-    <br><br>
+            <div class="setup-card">
 
-    <button id="startButton">Start Interview</button>
+                <div class="field">
+                    <label for="company">Company</label>
+
+                    <select id="company">
+                        <option value="Google">Google</option>
+                        <option value="Microsoft">Microsoft</option>
+                        <option value="Amazon">Amazon</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label for="role">Role</label>
+
+                    <select id="role">
+                        <option value="Software Engineer">
+                            Software Engineer
+                        </option>
+
+                        <option value="Frontend Developer">
+                            Frontend Developer
+                        </option>
+
+                        <option value="Backend Developer">
+                            Backend Developer
+                        </option>
+                    </select>
+                </div>
+
+                <button id="startButton">
+                    Start Interview
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- INTERVIEW SCREEN -->
+        <section id="interviewScreen" class="screen hidden">
+
+            <div class="interview-header">
+
+                <div>
+                    <p class="eyebrow">TECHNICAL INTERVIEW</p>
+                    <h2 id="questionNumber">Question 1 / 5</h2>
+                </div>
+
+                <div class="progress">
+                    <div id="progressBar"></div>
+                </div>
+
+            </div>
+
+
+            <div class="question-card">
+
+                <p class="question-label">QUESTION</p>
+
+                <h2 id="questionText">
+                    Your question will appear here.
+                </h2>
+
+            </div>
+
+
+            <div class="answer-card">
+
+                <label for="answerInput">
+                    Your Answer
+                </label>
+
+                <textarea
+                    id="answerInput"
+                    placeholder="Type your answer here..."
+                    rows="8"
+                ></textarea>
+
+                <button id="submitButton">
+                    Submit Answer
+                </button>
+
+            </div>
+
+
+            <!-- AI FEEDBACK -->
+            <div id="feedbackCard" class="feedback-card hidden">
+
+                <div class="score-section">
+                    <span>Score</span>
+                    <strong id="score">0/10</strong>
+                </div>
+
+                <div>
+                    <h3>AI Feedback</h3>
+                    <p id="feedback"></p>
+                </div>
+
+                <div>
+                    <h3>Strengths</h3>
+                    <ul id="strengths"></ul>
+                </div>
+
+                <div>
+                    <h3>Areas for Improvement</h3>
+                    <ul id="improvements"></ul>
+                </div>
+
+                <button id="nextButton">
+                    Next Question
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTS SCREEN -->
+        <section id="resultsScreen" class="screen hidden">
+
+            <div class="results-header">
+
+                <p class="eyebrow">INTERVIEW COMPLETE</p>
+
+                <h2>Your Results</h2>
+
+                <div class="final-score">
+
+                    <div>
+                        <span>Total Score</span>
+                        <strong id="totalScore">0/50</strong>
+                    </div>
+
+                    <div>
+                        <span>Average Score</span>
+                        <strong id="averageScore">0/10</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="results-card">
+
+                <div>
+                    <h3>Strengths</h3>
+                    <ul id="finalStrengths"></ul>
+                </div>
+
+                <div>
+                    <h3>Areas for Improvement</h3>
+                    <ul id="finalImprovements"></ul>
+                </div>
+
+            </div>
+
+            <button id="restartButton">
+                Try Another Interview
+            </button>
+
+        </section>
+
+    </main>
+
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
